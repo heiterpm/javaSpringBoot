@@ -1,6 +1,4 @@
 package com.br.apiSpring.paciente;
-
-import com.br.apiSpring.endereco.DadosEndereco;
 import com.br.apiSpring.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,4 +21,12 @@ public class Paciente {
     String cpf;
     @Embedded
     Endereco endereco;
+
+    public Paciente(DadosCadastroPaciente dados) {
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.telefone = dados.telefone();
+        this.cpf = dados.cpf();
+        this.endereco = new Endereco(dados.endereco());
+    }
 }
