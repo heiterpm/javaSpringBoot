@@ -1,6 +1,6 @@
-package com.br.apiSpring.paciente;
+package com.br.apiSpring.domain.paciente;
 
-import com.br.apiSpring.endereco.Endereco;
+import com.br.apiSpring.domain.endereco.Endereco;
 
 public record DadosDetalhamentoPaciente(Long id, String nome, String email, String telefone, String cpf, Endereco endereco) {
     public DadosDetalhamentoPaciente(Paciente paciente) {

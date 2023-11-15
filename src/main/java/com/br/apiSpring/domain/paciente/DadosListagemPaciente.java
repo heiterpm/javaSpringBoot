@@ -1,4 +1,4 @@
-package com.br.apiSpring.paciente;
+package com.br.apiSpring.domain.paciente;
 
 public record DadosListagemPaciente(Long id, String nome, String email, String cpf) {
     public DadosListagemPaciente(Paciente paciente) {

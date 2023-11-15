@@ -1,4 +1,4 @@
-package com.br.apiSpring.medico;
+package com.br.apiSpring.domain.medico;
 
 public enum Especialidade {
     ORTOPEDIA,

@@ -1,7 +1,8 @@
 package com.br.apiSpring.controller;
 
-import com.br.apiSpring.medico.DadosDetalhamentoMedico;
-import com.br.apiSpring.paciente.*;
+import com.br.apiSpring.domain.paciente.Paciente;
+import com.br.apiSpring.domain.paciente.PacienteRepository;
+import com.br.apiSpring.domain.paciente.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

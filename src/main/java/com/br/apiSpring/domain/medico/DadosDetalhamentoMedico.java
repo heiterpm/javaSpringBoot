@@ -1,6 +1,6 @@
-package com.br.apiSpring.medico;
+package com.br.apiSpring.domain.medico;
 
-import com.br.apiSpring.endereco.Endereco;
+import com.br.apiSpring.domain.endereco.Endereco;
 
 public record DadosDetalhamentoMedico(Long id, String nome, String email, String crm, String telefone, Especialidade especialidade, Endereco endereco) {
 

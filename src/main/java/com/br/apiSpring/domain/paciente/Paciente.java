@@ -1,43 +1,38 @@
-package com.br.apiSpring.medico;
-
-import com.br.apiSpring.endereco.DadosEndereco;
-import com.br.apiSpring.endereco.Endereco;
+package com.br.apiSpring.domain.paciente;
+import com.br.apiSpring.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-//JPA
-@Table(name = "medicos")
-@Entity(name = "Medico")
+
+@Table(name = "pacientes")
+@Entity(name = "Paciente")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Medico {
+public class Paciente {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-    private String email;
-    private String telefone;
-    private String crm;
-    @Enumerated(EnumType.STRING)
-    private Especialidade especialidade;
+    String nome;
+    String email;
+    String telefone;
+    String cpf;
     @Embedded
-    private Endereco endereco;
+    Endereco endereco;
     private Boolean ativo;
 
-    public Medico(DadosCadastroMedico dados) {
+    public Paciente(DadosCadastroPaciente dados) {
         this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
-        this.crm = dados.crm();
-        this.especialidade = dados.especialidade();
+        this.cpf = dados.cpf();
         this.endereco = new Endereco(dados.endereco());
     }
 
-    public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
+    public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {
         this.nome = dados.nome() != null ? dados.nome() : this.nome;
         this.telefone = dados.telefone() != null ? dados.telefone() : this.telefone;
         if(dados.endereco() != null)

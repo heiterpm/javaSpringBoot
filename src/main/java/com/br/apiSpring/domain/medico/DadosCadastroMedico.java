@@ -1,22 +1,25 @@
-package com.br.apiSpring.paciente;
+package com.br.apiSpring.domain.medico;
 
-import com.br.apiSpring.endereco.DadosEndereco;
+import com.br.apiSpring.domain.endereco.DadosEndereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosCadastroPaciente(
+public record DadosCadastroMedico(
         @NotBlank
         String nome,
         @NotBlank
         @Email
         String email,
-        @Pattern(regexp = "\\d{11,12}")
+        @NotBlank
         String telefone,
         @NotBlank
-        String cpf,
+        @Pattern(regexp = "\\d{4,6}")
+        String crm,
+        @NotNull
+        Especialidade especialidade,
         @NotNull
         @Valid
         DadosEndereco endereco
